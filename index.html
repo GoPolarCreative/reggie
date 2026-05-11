@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reggie Care Services — NDIS Registered Provider Melbourne</title>
+  <meta name="description" content="Reggie Care Services is an NDIS registered provider servicing Melbourne's Northern and Western suburbs. Veteran owned, nurse-led care built around you." />
+  <link rel="icon" type="image/png" href="/images/RCS_Logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #7B5EA7;
+      --primary-light: #9B7EC8;
+      --primary-lighter: #C4AEDF;
+      --primary-pale: #F0EBF8;
+      --teal: #6BA8B8;
+      --teal-light: #A8D4DF;
+      --teal-pale: #EAF4F7;
+      --white: #ffffff;
+      --grey-50: #F8F8FB;
+      --grey-100: #F0EEF5;
+      --grey-200: #E2DFF0;
+      --grey-400: #9B96B0;
+      --grey-600: #5C5878;
+      --grey-800: #2D2A3E;
+      --success: #3B9E6E;
+      --warning: #D97706;
+      --error: #DC2626;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --shadow-sm: 0 2px 8px rgba(123,94,167,0.10);
+      --shadow-md: 0 6px 24px rgba(123,94,167,0.14);
+      --shadow-lg: 0 16px 48px rgba(123,94,167,0.18);
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; color: var(--grey-800); background: var(--white); line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+
+    /* ─── UTILITY ─── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    .section-title { font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; color: var(--grey-800); margin-bottom: 12px; }
+    .section-subtitle { font-size: 1.05rem; color: var(--grey-600); max-width: 580px; line-height: 1.7; }
+    .section-header { margin-bottom: 52px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-subtitle { margin: 0 auto; }
+    .tag { display: inline-block; background: var(--primary-pale); color: var(--primary); font-size: 0.78rem; font-weight: 600; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: var(--radius-sm); font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; border: none; transition: var(--transition); text-decoration: none; line-height: 1; }
+    .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 4px 14px rgba(123,94,167,0.35); }
+    .btn-primary:hover { background: #6A4F94; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(123,94,167,0.40); }
+    .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+    .btn-outline:hover { background: var(--primary-pale); transform: translateY(-2px); }
+    .btn-white { background: #fff; color: var(--primary); box-shadow: var(--shadow-md); }
+    .btn-white:hover { background: var(--primary-pale); transform: translateY(-2px); }
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ─── DIAGONAL DIVIDERS ─── */
+    .diagonal-top { position: relative; }
+    .diagonal-top::before { content: ''; position: absolute; top: -40px; left: 0; right: 0; height: 80px; background: inherit; clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%); z-index: 1; }
+    .diagonal-bottom { position: relative; }
+    .diagonal-bottom::after { content: ''; position: absolute; bottom: -40px; left: 0; right: 0; height: 80px; background: inherit; clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%); z-index: 1; }
+
+    /* ─── NAV ─── */
+    #nav { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--grey-200); transition: box-shadow var(--transition); }
+    #nav.scrolled { box-shadow: var(--shadow-md); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 48px; width: auto; object-fit: contain; }
+    .nav-logo-text { display: flex; flex-direction: column; }
+    .nav-logo-text strong { font-size: 1.05rem; font-weight: 700; color: var(--primary); line-height: 1.2; }
+    .nav-logo-text span { font-size: 0.68rem; color: var(--grey-600); letter-spacing: 0.04em; font-weight: 500; }
+    .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.92rem; font-weight: 500; color: var(--grey-600); padding: 7px 13px; border-radius: var(--radius-sm); transition: color var(--transition), background var(--transition); }
+    .nav-links a:hover { color: var(--primary); background: var(--primary-pale); }
+    .nav-cta { margin-left: 12px; padding: 10px 22px; font-size: 0.88rem; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--grey-800); border-radius: 2px; transition: var(--transition); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; padding: 16px 24px 24px; background: #fff; border-top: 1px solid var(--grey-200); }
+    .mobile-menu a { display: block; padding: 10px 0; font-size: 1rem; font-weight: 500; color: var(--grey-700); text-decoration: none; border-bottom: 1px solid var(--grey-100); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu .btn { margin-top: 14px; width: 100%; justify-content: center; }
+
+    /* ─── HERO ─── */
+    #home { background: linear-gradient(135deg, #F5F0FC 0%, #EAF4F7 60%, #F0EBF8 100%); padding: 80px 0 120px; position: relative; overflow: hidden; }
+    #home::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 80px; background: var(--white); clip-path: polygon(0 100%, 100% 0, 100% 100%); }
+    .hero-shape-1 { position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(155,126,200,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero-shape-2 { position: absolute; bottom: 40px; left: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(107,168,184,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center; position: relative; z-index: 2; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(123,94,167,0.1); border: 1px solid rgba(123,94,167,0.2); color: var(--primary); font-size: 0.8rem; font-weight: 600; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .hero-badge svg { width: 14px; height: 14px; }
+    .hero-headline { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 700; line-height: 1.15; color: var(--grey-800); margin-bottom: 18px; }
+    .hero-headline em { font-style: normal; color: var(--primary); }
+    .hero-sub { font-size: 1.08rem; color: var(--grey-600); line-height: 1.75; margin-bottom: 36px; max-width: 500px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .hero-trust { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--grey-600); font-weight: 500; }
+    .trust-dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; flex-shrink: 0; }
+
+    /* Hero Enquiry Card */
+    .hero-card { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 36px 32px; position: relative; }
+    .hero-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--primary), var(--teal)); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    .hero-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--grey-800); margin-bottom: 4px; }
+    .hero-card p { font-size: 0.85rem; color: var(--grey-600); margin-bottom: 22px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--grey-600); margin-bottom: 5px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 14px; border: 1.5px solid var(--grey-200); border-radius: var(--radius-sm); font-family: 'Poppins', sans-serif; font-size: 0.88rem; color: var(--grey-800); background: var(--grey-50); transition: border-color var(--transition), box-shadow var(--transition); outline: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(155,126,200,0.15); background: #fff; }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235C5878' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; cursor: pointer; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-submit { width: 100%; padding: 13px; font-size: 0.95rem; margin-top: 6px; justify-content: center; }
+    .form-success { display: none; text-align: center; padding: 24px 0; }
+    .form-success svg { width: 48px; height: 48px; color: var(--success); margin-bottom: 12px; }
+    .form-success h4 { font-size: 1.15rem; font-weight: 700; color: var(--grey-800); margin-bottom: 6px; }
+    .form-success p { font-size: 0.9rem; color: var(--grey-600); }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--white); padding: 100px 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+    .service-card { background: #fff; border: 1.5px solid var(--grey-200); border-radius: var(--radius-md); padding: 30px 26px; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); cursor: default; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--primary-lighter); }
+    .service-icon { width: 52px; height: 52px; background: var(--primary-pale); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .service-icon svg { width: 26px; height: 26px; color: var(--primary); stroke: var(--primary); }
+    .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--grey-800); margin-bottom: 8px; }
+    .service-card p { font-size: 0.88rem; color: var(--grey-600); line-height: 1.65; }
+
+    /* ─── WHY CHOOSE US ─── */
+    #why { background: linear-gradient(135deg, var(--primary-pale) 0%, #EEF5F8 100%); padding: 100px 0; position: relative; }
+    #why::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 60px; background: var(--white); clip-path: polygon(0 0, 100% 0, 100% 100%); }
+    #why::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 60px; background: var(--white); clip-path: polygon(0 0, 0 100%, 100% 100%); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px; }
+    .why-card { background: #fff; border-radius: var(--radius-md); padding: 34px 28px; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition); }
+    .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .why-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary), var(--teal)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .why-icon svg { width: 28px; height: 28px; color: #fff; stroke: #fff; }
+    .why-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--grey-800); margin-bottom: 8px; }
+    .why-card p { font-size: 0.88rem; color: var(--grey-600); line-height: 1.65; }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--white); padding: 100px 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-text p { font-size: 0.97rem; color: var(--grey-600); line-height: 1.8; margin-bottom: 18px; }
+    .about-text p:last-of-type { margin-bottom: 36px; }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+    .stat-item { text-align: center; background: var(--primary-pale); border-radius: var(--radius-md); padding: 20px 12px; border: 1px solid var(--grey-200); }
+    .stat-number { font-size: 1.5rem; font-weight: 700; color: var(--primary); line-height: 1.2; }
+    .stat-label { font-size: 0.75rem; color: var(--grey-600); margin-top: 4px; font-weight: 500; line-height: 1.4; }
+    .about-visual { position: relative; }
+    .about-image-wrap { border-radius: var(--radius-lg); overflow: hidden; background: linear-gradient(135deg, var(--primary-pale), var(--teal-pale)); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; max-height: 420px; }
+    .about-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .about-logo-display { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; padding: 40px; }
+    .about-logo-display img { width: 180px; height: auto; }
+    .about-logo-display p { font-size: 0.9rem; color: var(--grey-600); text-align: center; font-weight: 500; line-height: 1.6; }
+    .about-badge { position: absolute; bottom: -20px; right: -20px; background: #fff; border-radius: var(--radius-md); padding: 18px 22px; box-shadow: var(--shadow-lg); border: 1px solid var(--grey-200); display: flex; align-items: center; gap: 14px; }
+    .about-badge-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--teal)); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .about-badge-icon svg { width: 22px; height: 22px; stroke: #fff; }
+    .about-badge-text strong { display: block; font-size: 0.92rem; font-weight: 700; color: var(--grey-800); }
+    .about-badge-text span { font-size: 0.75rem; color: var(--grey-600); }
+
+    /* ─── NDIS REGISTRATIONS ─── */
+    #ndis { background: var(--grey-50); padding: 100px 0; position: relative; }
+    #ndis::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 60px; background: var(--white); clip-path: polygon(0 0, 100% 100%, 100% 0); }
+    .ndis-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+    .ndis-card { background: #fff; border: 1px solid var(--grey-200); border-radius: var(--radius-md); padding: 18px 20px; display: flex; align-items: center; gap: 14px; transition: box-shadow var(--transition), border-color var(--transition); }
+    .ndis-card:hover { box-shadow: var(--shadow-sm); border-color: var(--primary-lighter); }
+    .ndis-code { background: linear-gradient(135deg, var(--primary), var(--teal)); color: #fff; font-size: 0.78rem; font-weight: 700; padding: 6px 12px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.04em; }
+    .ndis-name { font-size: 0.9rem; font-weight: 500; color: var(--grey-800); line-height: 1.4; }
+    .ndis-note { margin-top: 28px; display: flex; align-items: center; gap: 10px; background: var(--primary-pale); border: 1px solid var(--primary-lighter); border-radius: var(--radius-md); padding: 16px 20px; }
+    .ndis-note svg { width: 20px; height: 20px; stroke: var(--primary); flex-shrink: 0; }
+    .ndis-note p { font-size: 0.88rem; color: var(--grey-800); font-weight: 500; }
+    .ndis-note strong { color: var(--primary); }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials { background: var(--white); padding: 100px 0; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .testimonial-card { background: #fff; border: 1px solid var(--grey-200); border-radius: var(--radius-md); padding: 32px 28px; border-left: 5px solid var(--primary); box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition); }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .btn-google-reviews { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: #fff; border: 2px solid var(--grey-200); border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; color: var(--grey-800); text-decoration: none; box-shadow: var(--shadow-sm); transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition); }
+    .btn-google-reviews:hover { box-shadow: var(--shadow-md); border-color: var(--grey-400); transform: translateY(-2px); }
+    .stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .star { width: 18px; height: 18px; fill: #FBBF24; }
+    .testimonial-card p { font-size: 0.92rem; color: var(--grey-600); line-height: 1.75; margin-bottom: 22px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .author-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-lighter), var(--teal-light)); display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--primary); flex-shrink: 0; }
+    .author-info strong { display: block; font-size: 0.9rem; font-weight: 700; color: var(--grey-800); }
+    .author-info span { font-size: 0.78rem; color: var(--grey-600); }
+
+    /* ─── GALLERY ─── */
+    #gallery { background: var(--grey-50); padding: 100px 0; position: relative; }
+    #gallery::before { content: ''; position: absolute; top: -1px; left: 0; right: 0; height: 60px; background: var(--white); clip-path: polygon(0 0, 100% 0, 0 100%); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .gallery-item { border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/3; cursor: pointer; position: relative; transition: transform var(--transition), box-shadow var(--transition); }
+    .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-md); }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-thumb { position: relative; width: 100%; height: 100%; display: flex; align-items: flex-end; padding: 14px; overflow: hidden; }
+    .gallery-overlay { position: absolute; inset: 0; background: rgba(123,94,167,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--transition); }
+    .gallery-overlay svg { width: 36px; height: 36px; stroke: #fff; }
+
+    /* Lightbox */
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(20,15,35,0.92); z-index: 9999; align-items: center; justify-content: center; padding: 24px; }
+    #lightbox.open { display: flex; }
+    .lightbox-inner { position: relative; max-width: 680px; width: 100%; background: #fff; border-radius: var(--radius-lg); overflow: hidden; }
+    .lightbox-content { width: 100%; aspect-ratio: 4/3; display: flex; align-items: flex-end; padding: 24px; }
+    .lightbox-label { font-size: 1rem; font-weight: 600; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+    .lightbox-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; background: rgba(0,0,0,0.4); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; transition: background var(--transition); }
+    .lightbox-close:hover { background: rgba(0,0,0,0.7); }
+    .lightbox-close svg { width: 18px; height: 18px; stroke: #fff; }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--white); padding: 100px 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: start; }
+    .contact-info h3 { font-size: 1.35rem; font-weight: 700; color: var(--grey-800); margin-bottom: 10px; }
+    .contact-info > p { font-size: 0.92rem; color: var(--grey-600); line-height: 1.7; margin-bottom: 32px; }
+    .contact-details { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 14px; }
+    .contact-item-icon { width: 42px; height: 42px; background: var(--primary-pale); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-item-icon svg { width: 20px; height: 20px; stroke: var(--primary); }
+    .contact-item-text strong { display: block; font-size: 0.85rem; font-weight: 700; color: var(--grey-800); }
+    .contact-item-text span, .contact-item-text a { font-size: 0.88rem; color: var(--grey-600); text-decoration: none; }
+    .contact-item-text a:hover { color: var(--primary); }
+    .social-links { display: flex; gap: 12px; }
+    .social-link { width: 44px; height: 44px; background: var(--grey-100); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--grey-600); transition: background var(--transition), color var(--transition), transform var(--transition); }
+    .social-link:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+    .social-link svg { width: 20px; height: 20px; }
+    .contact-form-wrap { background: var(--grey-50); border-radius: var(--radius-lg); padding: 40px 36px; border: 1px solid var(--grey-200); }
+    .contact-form-wrap h3 { font-size: 1.2rem; font-weight: 700; color: var(--grey-800); margin-bottom: 6px; }
+    .contact-form-wrap > p { font-size: 0.85rem; color: var(--grey-600); margin-bottom: 26px; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--grey-800); color: #fff; padding: 64px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; }
+    .footer-brand img { height: 56px; width: auto; margin-bottom: 14px; filter: brightness(0) invert(1) opacity(0.9); }
+    .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 20px; max-width: 260px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a { width: 38px; height: 38px; background: rgba(255,255,255,0.1); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: background var(--transition), transform var(--transition); }
+    .footer-social a:hover { background: var(--primary); transform: translateY(-2px); }
+    .footer-social a svg { width: 18px; height: 18px; stroke: #fff; }
+    .footer-col h4 { font-size: 0.9rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.88rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color var(--transition); }
+    .footer-col ul li a:hover { color: var(--primary-lighter); }
+    .footer-col ul li { font-size: 0.88rem; color: rgba(255,255,255,0.6); }
+    .ndis-badge { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid rgba(155,126,200,0.4); border-radius: var(--radius-sm); padding: 10px 14px; margin-top: 16px; }
+    .ndis-badge svg { width: 20px; height: 20px; stroke: var(--primary-lighter); }
+    .ndis-badge span { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.8); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    .footer-bottom a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color var(--transition); }
+    .footer-bottom a:hover { color: var(--primary-lighter); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-card { max-width: 500px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-badge { bottom: 12px; right: 12px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu.open { display: block; }
+      .hero-grid { gap: 36px; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .stats-row { grid-template-columns: 1fr; gap: 10px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .ndis-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<header id="nav">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="/images/RCS_Logo.png" alt="Reggie Care Services Logo" />
+        <div class="nav-logo-text">
+          <strong>Reggie Care Services</strong>
+          <span>NDIS Registered Provider</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#ndis">NDIS Info</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary nav-cta">Make an Enquiry</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#ndis">NDIS Info</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-primary">Make an Enquiry</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-shape-1"></div>
+  <div class="hero-shape-2"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          NDIS Registered Provider — Melbourne
+        </div>
+        <h1 class="hero-headline">Empowering Lives.<br /><em>Enabling Independence.</em></h1>
+        <p class="hero-sub">NDIS registered provider servicing Melbourne's Northern and Western suburbs — delivering care built around you.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+            View Our Services
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.41a16 16 0 0 0 6.08 6.08l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+            Contact Us Today
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><div class="trust-dot"></div> Veteran Owned &amp; Operated</div>
+          <div class="trust-item"><div class="trust-dot"></div> Nurse-Led Care</div>
+          <div class="trust-item"><div class="trust-dot"></div> 11 Support Categories</div>
+        </div>
+      </div>
+      <div class="hero-card-wrap">
+        <div class="hero-card">
+          <h3>Quick Enquiry</h3>
+          <p>We'll get back to you within 1 business day.</p>
+          <form id="hero-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="b0ae056e-c9be-469e-ac68-b224555f1eb9" />
+            <input type="hidden" name="subject" value="New Enquiry from Reggie Care Services Website" />
+            <input type="hidden" name="from_name" value="RCS Website" />
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name *</label>
+                <input type="text" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label>Phone *</label>
+                <input type="tel" name="phone" placeholder="04XX XXX XXX" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="you@email.com" />
+            </div>
+            <div class="form-group">
+              <label>Service Interested In</label>
+              <select name="service">
+                <option value="">Select a service...</option>
+                <option>Home Care</option>
+                <option>Supported Independent Living (SIL)</option>
+                <option>NDIS Housing &amp; Tenancy Support</option>
+                <option>Short &amp; Medium Term Accommodation (STA/MTA)</option>
+                <option>Community Access &amp; Social Engagement</option>
+                <option>Assist Personal Activities</option>
+                <option>Development of Life Skills</option>
+                <option>Group &amp; Centre Activities</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" placeholder="Tell us a little about your situation..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Send Enquiry</button>
+          </form>
+          <div class="form-success" id="hero-success">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <h4>Thanks! We'll be in touch shortly.</h4>
+            <p>Our team will reach out within 1 business day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Our Services</div>
+      <h2 class="section-title">What We Offer</h2>
+      <p class="section-subtitle">Comprehensive NDIS supports designed to help participants live independently, engage with their community, and achieve their goals.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Home Care</h3>
+        <p>Personal support delivered in the comfort of your own home — tailored to your routine, preferences, and goals.</p>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Supported Independent Living (SIL)</h3>
+        <p>Shared living arrangements with 24/7 support across Melbourne's Northern and Western suburbs.</p>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>NDIS Housing &amp; Tenancy Support</h3>
+        <p>Helping participants find, transition into, and maintain suitable, stable housing that supports their independence.</p>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+        </div>
+        <h3>Short &amp; Medium Term Accommodation</h3>
+        <p>Flexible respite and transitional accommodation options — STA and MTA — for when you need a change or break.</p>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Community Access &amp; Social Engagement</h3>
+        <p>Get out, connect, and participate in community life with our dedicated support workers by your side.</p>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Assist Personal Activities</h3>
+        <p>Daily personal care — from hygiene and grooming to meal preparation — tailored precisely to your needs and NDIS goals.</p>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Development of Life Skills</h3>
+        <p>Building lasting independence through practical skill development — from budgeting and cooking to communication and self-advocacy.</p>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="17" y2="11"/><line x1="20" y1="8" x2="20" y2="14"/></svg>
+        </div>
+        <h3>Group &amp; Centre Activities</h3>
+        <p>Engaging group programs and community-based activities that foster connection, skill-building, and fun.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="container" style="position:relative;z-index:2;padding-top:20px;">
+    <div class="section-header center">
+      <div class="tag">Why RCS</div>
+      <h2 class="section-title">The Reggie Difference</h2>
+      <p class="section-subtitle">We're not just another NDIS provider. We're a team built on values, led by clinicians, and driven by genuine commitment to participants.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>Veteran Owned &amp; Operated</h3>
+        <p>Founded and led with the integrity, discipline, and commitment you'd expect from those who have served our country. We don't cut corners — ever.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Nurse-Led Care</h3>
+        <p>Our co-founders are qualified nurses. Clinical excellence isn't a marketing line — it's in our DNA and embedded in every care plan we deliver.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>NDIS Registered Provider</h3>
+        <p>Fully registered across 11 NDIS support categories — giving participants and coordinators confidence, choice, and flexibility.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Participant-First Approach</h3>
+        <p>Your goals, your choices, your life. We walk beside you every step of the way — listening first, acting second, always advocating for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="tag">Our Story</div>
+        <h2 class="section-title">About Reggie Care Services</h2>
+        <p>At Reggie Care Services, we believe every person with a disability deserves to live life on their own terms. Founded by veterans and nurses, we bring discipline, clinical expertise, and genuine heart to everything we do.</p>
+        <p>Our mission is to enhance the lives of participants and their families through exceptional care, empowering personal choice, and creating opportunities for positive, lasting outcomes.</p>
+        <p>We serve the Northern and Western suburbs of Melbourne, and we're proud to be a community-built, community-focused provider.</p>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">11</div>
+            <div class="stat-label">Registered Support Categories</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">N&W</div>
+            <div class="stat-label">Northern &amp; Western Melbourne</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-image-wrap">
+          <img src="/images/IMG_1444.jpeg" alt="The Reggie Care Services team" style="width:100%;height:100%;object-fit:cover;object-position:center top;max-height:420px;" />
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="about-badge-text">
+            <strong>NDIS Registered</strong>
+            <span>Verified Provider</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NDIS REGISTRATIONS -->
+<section id="ndis">
+  <div class="container" style="position:relative;z-index:2;padding-top:20px;padding-bottom:60px;">
+    <div class="section-header center">
+      <div class="tag">NDIS Info</div>
+      <h2 class="section-title">Our NDIS Registrations</h2>
+      <p class="section-subtitle">We are fully registered across 11 NDIS support categories, giving participants and their coordinators confidence and flexibility.</p>
+    </div>
+    <div class="ndis-grid">
+      <div class="ndis-card fade-in"><span class="ndis-code">0115</span><span class="ndis-name">Daily Tasks / Shared Living</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0106</span><span class="ndis-name">Assist-Life Stage, Transition</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0108</span><span class="ndis-name">Assist-Travel / Transport</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0107</span><span class="ndis-name">Assist-Personal Activities</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0125</span><span class="ndis-name">Participate Community</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0114</span><span class="ndis-name">Community Nursing Care</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0116</span><span class="ndis-name">Innovative Community Participation</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0136</span><span class="ndis-name">Group / Centre Activities</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0104</span><span class="ndis-name">Assist Personal Activities High</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0117</span><span class="ndis-name">Development of Life Skills</span></div>
+      <div class="ndis-card fade-in"><span class="ndis-code">0120</span><span class="ndis-name">Household Tasks</span></div>
+    </div>
+    <div class="ndis-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <p>Unsure if your NDIS plan covers our services? <strong>Contact us today</strong> — our team will review your plan and help you understand exactly what funding you can access with Reggie Care Services.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="section-header center">
+      <div class="tag">Testimonials</div>
+      <h2 class="section-title">What Participants &amp; Families Say</h2>
+      <p class="section-subtitle">The experiences of those we support mean everything to us. Here's what some of our participants and their families have shared.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p>"Thank you Reggies Care Services for looking after my son, your support workers really great and very helpful."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div class="author-info">
+            <strong>Melissa</strong>
+            <span>Google Review</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p>"They're professional, friendly, and always go the extra mile to make sure everything runs smoothly. The team really cares about their clients and helps with whatever is needed. So happy with the support they provide!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div class="author-info">
+            <strong>Arslan</strong>
+            <span>Google Review</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="stars">
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p>"Great service. Would recommend to anyone needing nursing service. They have great ideas and think out the box to help out."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div class="author-info">
+            <strong>Saja</strong>
+            <span>Google Review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px;">
+      <a href="https://www.google.com/search?q=reggies+care+services&rlz=1C1ONGR_enAU1065AU1065&oq=reggies+care+services&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDI1MTNqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#lrd=0x6ad651e2263b6c39:0x3ba5b5f35e67d9b,1,,,," target="_blank" rel="noopener" class="btn-google-reviews">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" style="flex-shrink:0;"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Read More Google Reviews
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container" style="position:relative;z-index:2;padding-top:20px;padding-bottom:60px;">
+    <div class="section-header center">
+      <div class="tag">Gallery</div>
+      <h2 class="section-title">Our Homes &amp; Community</h2>
+      <p class="section-subtitle">A glimpse into our SIL homes, community activities, and the environments where our participants thrive.</p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <div class="lightbox-inner" id="lightbox-inner">
+    <div class="lightbox-content" id="lightbox-content">
+      <span class="lightbox-label" id="lightbox-label"></span>
+    </div>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Contact</div>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Ready to start your NDIS journey with us? We'd love to hear from you — reach out via the form or give us a call.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>We're here to help</h3>
+        <p>Whether you're a participant, family member, or support coordinator — our team is ready to answer your questions and help you get started.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.41a16 16 0 0 0 6.08 6.08l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <strong>Phone</strong>
+              <a href="tel:0452640442">0452 640 442</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <strong>Email</strong>
+              <a href="mailto:Info@reggiescareservices.com.au">Info@reggiescareservices.com.au</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <strong>Address</strong>
+              <span>1510 Pascoe Vale Road, Coolaroo VIC</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="contact-item-text">
+              <strong>Service Area</strong>
+              <span>Northern &amp; Western Melbourne suburbs</span>
+            </div>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3>Send Us a Message</h3>
+        <p>Fill in the form and we'll respond within 1 business day.</p>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="b0ae056e-c9be-469e-ac68-b224555f1eb9" />
+          <input type="hidden" name="subject" value="Contact Form — Reggie Care Services" />
+          <input type="hidden" name="from_name" value="RCS Website Contact" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name *</label>
+              <input type="text" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" name="phone" placeholder="04XX XXX XXX" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="email" placeholder="you@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Service Interested In</label>
+            <select name="service">
+              <option value="">Select a service...</option>
+              <option>Home Care</option>
+              <option>Supported Independent Living (SIL)</option>
+              <option>NDIS Housing &amp; Tenancy Support</option>
+              <option>Short &amp; Medium Term Accommodation (STA/MTA)</option>
+              <option>Community Access &amp; Social Engagement</option>
+              <option>Assist Personal Activities</option>
+              <option>Development of Life Skills</option>
+              <option>Group &amp; Centre Activities</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea name="message" placeholder="Tell us how we can help..." style="min-height:110px;" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+        </form>
+        <div class="form-success" id="contact-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:48px;height:48px;color:#3B9E6E;margin-bottom:12px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h4>Thanks! We'll be in touch shortly.</h4>
+          <p>Our team will respond within 1 business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/images/RCS_Logo.png" alt="Reggie Care Services" />
+        <p>Empowering Lives. Enabling Independence.<br />NDIS registered provider serving Melbourne's Northern and Western suburbs.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          </a>
+        </div>
+        <div class="ndis-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Registered NDIS Provider</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#ndis">NDIS Info</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="#services">Home Care</a></li>
+          <li><a href="#services">SIL</a></li>
+          <li><a href="#services">Community Access</a></li>
+          <li><a href="#services">Life Skills</a></li>
+          <li><a href="#services">Group Activities</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="tel:0452640442">0452 640 442</a></li>
+          <li><a href="mailto:Info@reggiescareservices.com.au">Info@reggiescareservices.com.au</a></li>
+          <li>1510 Pascoe Vale Road</li>
+          <li>Coolaroo VIC</li>
+          <li>Northern &amp; Western Melbourne</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Reggie Care Services. All rights reserved.</p>
+      <p>Website by <a href="#">Go Polar Creative</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── NAV SCROLL EFFECT ───
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // ─── HAMBURGER MENU ───
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    const open = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ─── FORM SUBMIT ───
+  function setupForm(formId, successId) {
+    const form = document.getElementById(formId);
+    const success = document.getElementById(successId);
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      try {
+        const data = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+        const json = await res.json();
+        if (json.success) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send Enquiry';
+          alert('Something went wrong. Please try again or call us directly.');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Send Enquiry';
+        alert('Something went wrong. Please try again or call us directly.');
+      }
+    });
+  }
+  setupForm('hero-form', 'hero-success');
+  setupForm('contact-form', 'contact-success');
+
+  // ─── GALLERY ───
+  const galleryItems = [
+    { label: 'Our Community', src: '/images/IMG_0467.jpeg' },
+    { label: 'Our Community', src: '/images/IMG_0480.jpeg' },
+    { label: 'Our Community', src: '/images/IMG_0572.jpeg' },
+    { label: 'Our Team', src: '/images/IMG_1444.jpeg' },
+    { label: 'Our Community', src: '/images/IMG_3528.jpeg' },
+    { label: 'Our Community', src: '/images/IMG_3529.jpeg' },
+    { label: 'Our Homes &amp; Community', src: '/images/Our Homes & Community/IMG_0418_-_Copy.jpeg' },
+    { label: 'Our Homes &amp; Community', src: '/images/Our Homes & Community/IMG_1437.jpeg' },
+    { label: 'Our Homes &amp; Community', src: '/images/Our Homes & Community/IMG_2600.jpeg' },
+  ];
+
+  const galleryGrid = document.getElementById('gallery-grid');
+  galleryItems.forEach((item, i) => {
+    const el = document.createElement('div');
+    el.className = 'gallery-item';
+    el.innerHTML = `
+      <div class="gallery-thumb" style="background:#C4AEDF;">
+        <img src="${item.src}" alt="${item.label}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" />
+      </div>
+      <div class="gallery-overlay">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+    `;
+    el.addEventListener('click', () => openLightbox(item, i));
+    galleryGrid.appendChild(el);
+  });
+
+  // ─── LIGHTBOX ───
+  const lightbox = document.getElementById('lightbox');
+  const lightboxContent = document.getElementById('lightbox-content');
+  const lightboxLabel = document.getElementById('lightbox-label');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(item, idx) {
+    lightboxContent.style.background = '#1a1a2e';
+    lightboxContent.style.backgroundImage = `url('${item.src}')`;
+    lightboxContent.style.backgroundSize = 'contain';
+    lightboxContent.style.backgroundRepeat = 'no-repeat';
+    lightboxContent.style.backgroundPosition = 'center';
+    lightboxLabel.innerHTML = item.label;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ─── FADE IN ON SCROLL ───
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = Array.from(el.parentElement.children).indexOf(el) * 80;
+        setTimeout(() => el.classList.add('visible'), delay);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
